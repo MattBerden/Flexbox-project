@@ -138,6 +138,55 @@ body {
   visibility: visible;
   opacity: 1; }
 
+.user-nav__message-icon:hover .chat {
+  visibility: visible;
+  opacity: 1; }
+
+.chat {
+  transition: all .2s;
+  visibility: hidden;
+  opacity: 0;
+  width: 35rem;
+  position: absolute;
+  top: 100%;
+  right: -11.8rem;
+  z-index: 100;
+  background: #fff;
+  box-shadow: 0 1.5rem 3rem rgba(0, 0, 0, 0.5);
+  font-size: 1.2rem; }
+  .chat__list {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; }
+  .chat__item {
+    display: flex;
+    align-items: center;
+    padding: 1.2rem 1.5rem; }
+    .chat__item:not(:last-child) {
+      border-bottom: var(--border-grey); }
+    .chat__item:hover {
+      background-color: var(--color-grey-light-2); }
+  .chat__photo {
+    height: 4rem;
+    width: 4rem;
+    border-radius: 50%;
+    margin-right: 1.5rem; }
+  .chat__box {
+    display: flex;
+    flex-direction: column; }
+  .chat__info {
+    display: flex;
+    align-items: baseline; }
+  .chat__user-name {
+    margin-right: auto;
+    font-weight: 600;
+    font-size: 1.2rem; }
+  .chat__timestamp {
+    font-size: 1rem;
+    color: var(--color-primary); }
+  .chat__preview {
+    font-size: 1rem; }
+
 .settings {
   transition: all .2s;
   visibility: hidden;
