@@ -88,6 +88,7 @@
     .suggestions {
      visibility: hidden;
       opacity: 0;
+      z-index: 999;
       transition: all .2s;
       background-color: var(--color-grey-light-1);
       position: absolute;
@@ -96,6 +97,11 @@
       display: flex;
       width: 45rem;
       font-size: 1.2rem;
+
+      @media only screen and (max-width: $bp-tiny) {
+        left: 0;
+        width: 100%;
+      }
       
 
       &__list {
@@ -116,6 +122,10 @@
         &:hover {
           background-color: var(--color-grey-light-3);
         }
+        &:last-of-type{
+        @media only screen and (max-width: $bp-tiny) {
+          border-bottom: 2px solid var(--color-primary);
+        }}
         
       }
 
@@ -473,6 +483,15 @@ opacity: 0;
     
     }
 
+    & span {
+      @media only screen and (max-width: $bp-tiny) {
+        display: none;
+      
+      }
+    }
+
+    
+
   
   }
 
@@ -493,6 +512,12 @@ opacity: 0;
       height: 1.5rem;
     }
 
+    @media only screen and (max-width: $bp-tiny) {
+      width: 2rem;
+      height: 2rem;
+    
+    }
+
   }
 }
 
@@ -511,24 +536,51 @@ opacity: 0;
   
 }
 
-///////////////////////////////
-// GALLERY
+//////////////////////////////////////
+/// GALLERY
 
 .gallery {
-
   display: flex;
-  
+  overflow: hidden;
+
+  &__item {
+    position: relative;
+  }
+
   &__photo {
     width: 100%;
     display: block;
 
+    &:hover ~ &-caption {
+      opacity: 1;
+      visibility: visible;
+      right: 0;
+    }
   }
-  &__item {
 
+  &__photo-caption {
+    position: absolute;
+    bottom: 0;
+    right: -20rem;
+    pointer-events: none;
+
+    opacity: 0;
+    visibility: hidden;
+
+    padding: 1rem 3rem;
+    background-color: rgba(0,0,0, 0.5);
+    color: var(--color-grey-light-1);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 1.2rem;
+    border-left: 0.8rem solid var(--color-primary);
+
+    transition: all 0.3s ease-out;
+
+    
   }
-
-  
 }
+
 
 ///////////////////////////////
 // HOTEL OVERVIEW
@@ -537,6 +589,12 @@ opacity: 0;
   display: flex;
   align-items: center;
   border-bottom: var(--border-grey);
+
+  @media only screen and (max-width: $bp-tiny) {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 
   &__heading {
     font-size: 2.25rem;
@@ -550,10 +608,23 @@ opacity: 0;
       padding: 1.25rem 2rem;
     }
 
+    @media only screen and (max-width: $bp-tiny) {
+      padding: 0;
+    }
+
   }
   &__stars {
     display: flex;
     margin-right: auto;
+    
+    @media only screen and (max-width: $bp-small) {
+      order:-1;
+
+    }
+
+    @media only screen and (max-width: $bp-tiny) {
+      margin:  1rem 0 0 0 ;
+    }
 
   }
 
@@ -591,6 +662,14 @@ opacity: 0;
       padding:  0 1.5rem;
     }
 
+    @media only screen and (max-width: $bp-small) {
+     margin: 0;
+    }
+
+    @media only screen and (max-width: $bp-tiny) {
+      margin-top: 1rem;
+    }
+
   }
   &__rating-average {
     font-size: 2.25rem;
@@ -610,11 +689,15 @@ opacity: 0;
       font-size: .5rem;}
 
   }
+
+
 }
 ///////////////////////////////
 // BUTTON INLINE
 
 .btn-inline {
+
+
   border:none;
   color: var(--color-primary);
   font-size: inherit;
