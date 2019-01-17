@@ -45,6 +45,7 @@ body {
 
 .search {
   flex: 0 0 40%;
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center; }
@@ -68,6 +69,9 @@ body {
       outline: none;
       width: 100%;
       background-color: var(--color-grey-light-3); }
+      .search__input:focus ~ .suggestions {
+        visibility: visible;
+        opacity: 1; }
     .search__input::-webkit-input-placeholder {
       font-weight: 100;
       color: var(--color-grey-light-4); }
@@ -84,6 +88,45 @@ body {
     height: 2rem;
     width: 2rem;
     fill: var(--color-grey-dark-3); }
+
+.suggestions {
+  visibility: hidden;
+  opacity: 0;
+  transition: all .2s;
+  background-color: var(--color-grey-light-1);
+  position: absolute;
+  top: 100%;
+  left: 2.3rem;
+  display: flex;
+  width: 45rem;
+  font-size: 1.2rem; }
+  .suggestions__list {
+    list-style: none;
+    flex: 1; }
+  .suggestions__item {
+    display: flex;
+    align-items: center;
+    padding: 1.5rem 2rem; }
+    .suggestions__item:not(:last-of-type) {
+      border-bottom: var(--border-grey); }
+    .suggestions__item:hover {
+      background-color: var(--color-grey-light-3); }
+  .suggestions__photo {
+    height: 4.5rem;
+    width: 4.5rem;
+    border-radius: 50%; }
+  .suggestions__box {
+    margin-left: 2rem; }
+  .suggestions__name {
+    color: #333;
+    font-weight: 600; }
+  .suggestions__location {
+    font-size: 1rem; }
+  .suggestions__rating {
+    margin-left: auto;
+    color: #fff;
+    background-color: var(--color-primary);
+    padding: 1rem 1.5rem; }
 
 .user-nav {
   align-self: stretch;
